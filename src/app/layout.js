@@ -3,7 +3,6 @@ import "./globals.css";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/custom/AppSidebar";
 
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -17,10 +16,12 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <SidebarProvider>
           <AppSidebar />
-          <main>
+          <main
+            className="
+           w-full relative overflow-x-hidden"
+          >
             <SidebarTrigger />
             {children}
-            
           </main>
         </SidebarProvider>
       </body>

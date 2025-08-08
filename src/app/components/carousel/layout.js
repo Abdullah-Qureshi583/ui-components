@@ -1,16 +1,17 @@
-"use client"
+"use client";
 import Header from "@/components/custom/Header";
-import React from "react";
 import { usePathname } from "next/navigation";
+import React from "react";
 
 
 const Carousellayout = ({ children }) => {
-    const tabs = ["a", "b", "c"];
-  const pathname = usePathname();
+    const a = usePathname()
+  const tabs = ["CarouselA", "b", "c"];
+  const currentPage = "carousel";
 
   return (
-    <div>
-      <Header currentPath={pathname} tabs={tabs} />
+    <div className="">
+      <Header currentPage={a} tabs={tabs} />
       {children}
     </div>
   );
