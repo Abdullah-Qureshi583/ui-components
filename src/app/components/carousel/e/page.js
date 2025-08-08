@@ -228,8 +228,8 @@ export default function EmblaReverseOnWheel() {
     };
 
     // Attach only to the carousel root so page scrolling doesn't accidentally flip direction
-    root.addEventListener("wheel", handleWheel, { passive: true });
-    return () => root.removeEventListener("wheel", handleWheel);
+    document.addEventListener("wheel", handleWheel, { passive: true });
+    return () => document.removeEventListener("wheel", handleWheel);
   }, [emblaApi]);
 
   return (
