@@ -130,7 +130,7 @@ const Carousels = () => {
         //   autoplay={true}
         //   onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         //   onSwiper={(swiper) => setActiveIndex(swiper.realIndex)}
-        className="w-ful h-auto"
+        className="w-ful h-[300px]"
       >
         {slides.map((text, index) => (
           <SwiperSlide

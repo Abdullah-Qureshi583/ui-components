@@ -20,6 +20,9 @@ import "swiper/css";
 import "swiper/css/mousewheel";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
+import "swiper/css/pagination";
+// import "swiper/css/effect-coverflow";
+
 import Image from "next/image";
 
 const slides = [
@@ -44,22 +47,30 @@ const Carousels = () => {
           Virtual,
           Navigation,
           Pagination,
-
         ]}
         //   loop={true}
         //   allowSlideNext={false}
         //   allowSlidePrev={false}
         //   allowTouchMove={false}
 
-        navigation={{
-          enabled: true,
-        //   nextEl: '.swiper-button-next',
-        //   prevEl: '.swiper-button-prev',
-          hideOnClick: false,
-          clickable: true
-        }}
-        // pagination={true}
+        // navigation={{
+        //   enabled: true,
+        //   //   nextEl: '.swiper-button-next',
+        //   //   prevEl: '.swiper-button-prev',
+        //   hideOnClick: false,
+        //   clickable: true,
+        // }}
 
+        pagination={{
+          enabled: true,
+          clickable: true,
+          dynamicBullets: true,
+          dynamicMainBullets: 3,
+          hideOnClick: false,
+          renderBullet: function (index, className) {
+            return '<span class="' + className + '">' + (index + 1) + '</span>';
+          },
+        }}
         // ========================
         //   Add the Scrollbar
         //   scrollbar={{
@@ -78,16 +89,15 @@ const Carousels = () => {
         //   }}
         // ========================
         // To make smaller side images
-          effect="coverflow"
-          coverflowEffect={{
-            depth: 100,
-            modifier: 1,
-            rotate: 50,// in z index
-            stretch: 0,
-            scale: 1,
-            slideShadows: true,
-          }}
-
+        // effect="coverflow"
+        // coverflowEffect={{
+        //   depth: 100,
+        //   modifier: 1,
+        //   rotate: 50, // in z index
+        //   stretch: 0,
+        //   scale: 1,
+        //   slideShadows: true,
+        // }}
         // ========================
         //   Move with animation slowly
         //   freeMode={{
@@ -119,30 +129,31 @@ const Carousels = () => {
         //     ),
         //   }}
 
-        virtual={{
-          slides: ["Slide 1", "Slide 2", "Slide 3", "Slide 4", "Slide 5"],
-        }}
+        // virtual={{
+        //   slides: ["Slide 1", "Slide 2", "Slide 3", "Slide 4", "Slide 5"],
+        // }}
         // navigation={true}
         //   mousewheel={{ forceToAxis: true }}
         centeredSlides={true}
-        slidesPerView={2}
-        spaceBetween={20}
+        slidesPerView={3}
+        spaceBetween={50}
         //   autoplay={true}
         //   onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         //   onSwiper={(swiper) => setActiveIndex(swiper.realIndex)}
-        className="w-ful h-auto  bg-zinc-200  "
+        className="w-ful h-[300px]"
       >
         {slides.map((text, index) => (
           <SwiperSlide
             key={index}
-            className={`flex items-center justify-center transition-all duration-500 rounded-lg bg-red-400 
-           text-white 
+            className={`flex items-center justify-center transition-all duration-500 rounded-lg 
+           text-white  relative
             `}
           >
             <Image
               src={text}
-              width={500}
-              height={500}
+              fill
+              // width={500}
+              // height={500}
               className="object-cover h-full"
               alt="Picture of the author"
             />

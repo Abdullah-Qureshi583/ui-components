@@ -32,7 +32,8 @@ const slides = [
 
 const Carousels = () => {
   return (
-    <div className="flex min-h-screen w-full justify-center items-center">
+    <div className="flex min-h-screen w-full justify-center items-center relative ">
+      
       <Swiper
         //   modules={[Mousewheel]}
         modules={[
@@ -44,7 +45,6 @@ const Carousels = () => {
           Virtual,
           Navigation,
           Pagination,
-
         ]}
         //   loop={true}
         //   allowSlideNext={false}
@@ -53,10 +53,10 @@ const Carousels = () => {
 
         navigation={{
           enabled: true,
-        //   nextEl: '.swiper-button-next',
-        //   prevEl: '.swiper-button-prev',
+          //   nextEl: '.swiper-button-next',
+          //   prevEl: '.swiper-button-prev',
           hideOnClick: false,
-          clickable: true
+          clickable: true,
         }}
         // pagination={true}
 
@@ -78,16 +78,15 @@ const Carousels = () => {
         //   }}
         // ========================
         // To make smaller side images
-          effect="coverflow"
-          coverflowEffect={{
-            depth: 100,
-            modifier: 1,
-            rotate: 50,// in z index
-            stretch: 0,
-            scale: 1,
-            slideShadows: true,
-          }}
-
+        effect="coverflow"
+        coverflowEffect={{
+          depth: 100,
+          modifier: 1,
+          rotate: 50, // in z index
+          stretch: 0,
+          scale: 1,
+          slideShadows: true,
+        }}
         // ========================
         //   Move with animation slowly
         //   freeMode={{
@@ -119,9 +118,9 @@ const Carousels = () => {
         //     ),
         //   }}
 
-        virtual={{
-          slides: ["Slide 1", "Slide 2", "Slide 3", "Slide 4", "Slide 5"],
-        }}
+        // virtual={{
+        //   slides: ["Slide 1", "Slide 2", "Slide 3", "Slide 4", "Slide 5"],
+        // }}
         // navigation={true}
         //   mousewheel={{ forceToAxis: true }}
         centeredSlides={true}
@@ -130,7 +129,7 @@ const Carousels = () => {
         //   autoplay={true}
         //   onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         //   onSwiper={(swiper) => setActiveIndex(swiper.realIndex)}
-        className="w-ful h-auto"
+        className="w-full h-[300px]"
       >
         {slides.map((text, index) => (
           <SwiperSlide
