@@ -7,7 +7,7 @@ const Carousellayout = ({ children }) => {
   //   const a = usePathname();
   const currentPage = "carousel";
 
-  const tabs = ["a", "b", "c"];
+  const tabs = ["a", "b", "c", "d"];
 
   return (
     <div className="">

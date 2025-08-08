@@ -20,9 +20,6 @@ import "swiper/css";
 import "swiper/css/mousewheel";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
-import "swiper/css/pagination";
-// import "swiper/css/effect-coverflow";
-
 import Image from "next/image";
 
 const slides = [
@@ -48,10 +45,10 @@ const Carousels = () => {
           Navigation,
           Pagination,
         ]}
-        //   loop={true}
+          loop={true}
         //   allowSlideNext={false}
         //   allowSlidePrev={false}
-        //   allowTouchMove={false}
+          allowTouchMove={false}
 
         // navigation={{
         //   enabled: true,
@@ -60,17 +57,8 @@ const Carousels = () => {
         //   hideOnClick: false,
         //   clickable: true,
         // }}
+        // pagination={true}
 
-        pagination={{
-          enabled: true,
-          clickable: true,
-          dynamicBullets: true,
-          dynamicMainBullets: 3,
-          hideOnClick: false,
-          renderBullet: function (index, className) {
-            return '<span class="' + className + '">' + (index + 1) + "</span>";
-          },
-        }}
         // ========================
         //   Add the Scrollbar
         //   scrollbar={{
@@ -80,24 +68,24 @@ const Carousels = () => {
 
         // ========================
         // AutoPlay
-        //   autoplay={{
-        //     delay: 500,
-        //     disableOnInteraction: false, // false to stop on moving after interaction
-        //     // reverseDirection: true, // true to move in reverse direction
-        //     stopOnLastSlide: false, // true to animate again
-        //     pauseOnMouseEnter: true, //stop on hover
-        //   }}
+          autoplay={{
+            delay: 1500,
+            disableOnInteraction: false, // false to stop on moving after interaction
+            // reverseDirection: true, // true to move in reverse direction
+            stopOnLastSlide: false, // true to animate again
+            pauseOnMouseEnter: true, //stop on hover
+          }}
         // ========================
         // To make smaller side images
-        // effect="coverflow"
-        // coverflowEffect={{
-        //   depth: 100,
-        //   modifier: 1,
-        //   rotate: 50, // in z index
-        //   stretch: 0,
-        //   scale: 1,
-        //   slideShadows: true,
-        // }}
+        effect="coverflow"
+        coverflowEffect={{
+          depth: 100,
+          modifier: 1,
+          rotate: 0, // removed rotation
+          stretch: 0,
+          scale: 0.7, // reduced scale for side slides
+          slideShadows: true, // removed shadows for cleaner look
+        }}
         // ========================
         //   Move with animation slowly
         //   freeMode={{
@@ -132,11 +120,13 @@ const Carousels = () => {
         // virtual={{
         //   slides: ["Slide 1", "Slide 2", "Slide 3", "Slide 4", "Slide 5"],
         // }}
+
+
         // navigation={true}
         //   mousewheel={{ forceToAxis: true }}
         centeredSlides={true}
-        slidesPerView={3}
-        spaceBetween={50}
+        slidesPerView={2}
+        // spaceBetween={10}
         //   autoplay={true}
         //   onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         //   onSwiper={(swiper) => setActiveIndex(swiper.realIndex)}
@@ -146,14 +136,13 @@ const Carousels = () => {
           <SwiperSlide
             key={index}
             className={`flex items-center justify-center transition-all duration-500 rounded-lg 
-           text-white  relative
-            `}
+           text-white `}
           >
             <Image
               src={text}
               width={500}
-              height={300}
-              // className="object-cover h-full"
+              height={500}
+              className="object-cover h-full"
               alt="Picture of the author"
             />
           </SwiperSlide>
