@@ -11,6 +11,8 @@ import {
   EffectCoverflow,
   Mousewheel,
   Virtual,
+  Navigation,
+  Pagination,
 } from "swiper/modules";
 
 // Add the css of that module you are going to use
@@ -40,11 +42,22 @@ const Carousels = () => {
           EffectCoverflow,
           Mousewheel,
           Virtual,
+          Navigation,
+          Pagination,
         ]}
         //   loop={true}
         //   allowSlideNext={false}
         //   allowSlidePrev={false}
         //   allowTouchMove={false}
+
+        navigation={{
+          enabled: true,
+          //   nextEl: '.swiper-button-next',
+          //   prevEl: '.swiper-button-prev',
+          hideOnClick: false,
+          clickable: true,
+        }}
+        // pagination={true}
 
         // ========================
         //   Add the Scrollbar
@@ -63,16 +76,16 @@ const Carousels = () => {
         //     pauseOnMouseEnter: true, //stop on hover
         //   }}
         // ========================
-        //   effect="coverflow"
-        //   coverflowEffect={{
-        //     depth: 150,
-        //     // modifier: 1,
-        //     rotate: 50,// in z index
-        //     stretch: 0,
-        //     scale: 1,
-        //     slideShadows: false,
-        //   }}
-
+        // To make smaller side images
+        effect="coverflow"
+        coverflowEffect={{
+          depth: 100,
+          modifier: 1,
+          rotate: 0, // removed rotation
+          stretch: 0,
+          scale: 0.7, // reduced scale for side slides
+          slideShadows: false, // removed shadows for cleaner look
+        }}
         // ========================
         //   Move with animation slowly
         //   freeMode={{
@@ -104,25 +117,26 @@ const Carousels = () => {
         //     ),
         //   }}
 
-        virtual={{
-          slides: ["Slide 1", "Slide 2", "Slide 3", "Slide 4", "Slide 5"],
-        }}
+        // virtual={{
+        //   slides: ["Slide 1", "Slide 2", "Slide 3", "Slide 4", "Slide 5"],
+        // }}
+
+
         // navigation={true}
         //   mousewheel={{ forceToAxis: true }}
         centeredSlides={true}
         slidesPerView={2}
-        spaceBetween={20}
+        // spaceBetween={10}
         //   autoplay={true}
         //   onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         //   onSwiper={(swiper) => setActiveIndex(swiper.realIndex)}
-        className="w-ful h-auto  bg-zinc-200  "
+        className="w-ful h-auto"
       >
         {slides.map((text, index) => (
           <SwiperSlide
             key={index}
-            className={`flex items-center justify-center transition-all duration-500 rounded-lg bg-red-400 
-           text-white 
-            `}
+            className={`flex items-center justify-center transition-all duration-500 rounded-lg 
+           text-white `}
           >
             <Image
               src={text}

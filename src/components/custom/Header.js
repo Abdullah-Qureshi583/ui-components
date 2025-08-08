@@ -9,7 +9,7 @@ const Header = ({currentPage, tabs}) => {
         <li key={idx} class="mr-1">
           <Link
             class="bg-white inline-block py-2 px-4 text-gray-400 font-semibold"
-            href={`${currentPage}/${tab}`}
+            href={`/components/${currentPage}/${tab}`}
             // href={`/components/carousel/a`}
           >
             {tab}
