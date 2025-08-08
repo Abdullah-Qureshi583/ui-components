@@ -1,5 +1,5 @@
 // IN this we have to add module by importing them to use
-"use client"
+"use client";
 import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -22,8 +22,6 @@ import "swiper/css/scrollbar";
 const slides = ["Slide 1", "Slide 2", "Slide 3", "Slide 4", "Slide 5"];
 
 const Carousels = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
   return (
     <Swiper
       //   modules={[Mousewheel]}
@@ -84,6 +82,8 @@ const Carousels = () => {
       //   }}
 
       // ========================
+      //   for animation continuously
+      //   Not Working
       //   virtual={{
       //     enabled: true,
       //     addSlidesAfter: 1,
@@ -102,8 +102,8 @@ const Carousels = () => {
       // navigation={true}
       //   mousewheel={{ forceToAxis: true }}
       centeredSlides={true}
-      slidesPerView={3}
-      spaceBetween={50}
+      slidesPerView={2}
+      spaceBetween={20}
       //   autoplay={true}
       //   onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
       //   onSwiper={(swiper) => setActiveIndex(swiper.realIndex)}
@@ -113,11 +113,8 @@ const Carousels = () => {
         <SwiperSlide
           key={index}
           className={`flex items-center justify-center transition-all duration-500 rounded-lg 
-          ${
-            index === activeIndex
-              ? "scale-110 bg-red-400 shadow-2xl z-10"
-              : "scale-90 bg-sky-300 text-white opacity-70"
-          }`}
+          bg-sky-300 text-white 
+            `}
         >
           {text}
         </SwiperSlide>

@@ -12,7 +12,7 @@ const Header = ({currentPage, tabs}) => {
             href={`${currentPage}/${tab}`}
             // href={`/components/carousel/a`}
           >
-            Tab
+            {tab}
           </Link>
         </li>
       ))}

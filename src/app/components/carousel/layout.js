@@ -3,11 +3,9 @@ import Header from "@/components/custom/Header";
 import { usePathname } from "next/navigation";
 import React from "react";
 
-
 const Carousellayout = ({ children }) => {
-    const a = usePathname()
+  const a = usePathname();
   const tabs = ["CarouselA", "b", "c"];
-  const currentPage = "carousel";
 
   return (
     <div className="">
