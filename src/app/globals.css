@@ -11,13 +11,14 @@
 .embla__slide {
   flex: 0 0 100%;
   min-width: 0;
-  background-color: brown;
+  background: palegreen;
 }
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+.embla__slide:nth-child(1) {
+  flex: 0 0 30%; /* Slide covers 30% of the viewport */
+  min-width: 0;
+  background-color: #40a820;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -33,8 +34,6 @@
     text-wrap: balance;
   }
 }
-
-
 
 @layer base {
   :root {
@@ -108,7 +107,6 @@
   }
 }
 
-
 @layer base {
   :root {
     --sidebar: oklch(0.985 0 0);
@@ -132,7 +130,6 @@
     --sidebar-ring: oklch(0.439 0 0);
   }
 }
-
 
 @layer base {
   * {
